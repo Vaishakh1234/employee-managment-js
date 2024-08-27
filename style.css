@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primaryColor: #231568;
+  --textWhite: #ffffff;
+  --textBlue :#858caf
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+body{
+    display: flex;
+    scroll-behavior: smooth;
+   
+}
+a{
+    text-decoration: none;
+    color: var(--primaryColor);
+    
+}
+li{
+    list-style: none;
+}
+.container{
+    width: calc(100vw - 300px);
+    padding:12px 20px;
+  
+   
+}
+
+/* sidebar */
+
+.sidebar__section{
+    width: 300px;
+    background-color:var(--primaryColor);
+    color: var(--textWhite);
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    user-select: none;
+  
+    
+}
+.sidebar__header{
+    padding: 30px 40px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--textWhite);
+}
+.sidebar__subTitle{
+    font-weight: 300;
+}
+
+.sidebar__links{
+    padding: 40px;
+}
+.sidebar__links .sidebar__item{
+    font-weight: 600;
+    border-radius: 22px;
+    margin-bottom: 10px;
+
+}
+.sidebar__links .sidebar__item a{
+       padding: 24px 30px;
+}
+
+.activeSidebarLink{
+   background-color:rgba(255, 255, 255, 0.13);
+}
+.sidebar__item a{
+    color: var(--textWhite);
+    gap: 20px;
+    display: flex;
+}
+
+
+
+/* /sidebar */
+.main{
+   background-color: #f4f7fe;
+   width: 100%;
+   
+}
+/* header */
+.header__section{
+    
+     height: fit-content;
+   
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 10px;
+     color: var(--primaryColor);
+     align-items: baseline;
+   
+}
+.header__title{
+    font-size: 28px;
+}
+.header__profileImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.header__profileBox{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 10px 14px;
+    background-color: var(--textWhite);
+}
+.header__inpBox{
+    background-color: #f4f7fe;
+    padding: 0px 22px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.header__profileBox .bellIcon{
+    font-size:25px;
+    color: #9dabd7;
+}
+.header__inpBox .searchInput{
+    background-color: #f4f7fe !important;
+   border: none;
+   padding: 13px;
+   outline: none;
+   font-size: 14px;
+
+}
+
+/* /header */
+
+
+
+/* employeeList */
+.employeList{
+    max-width: 100%;
+}
+.noUserTag{
+    text-align: center;
+    margin: 30px 0px;
+    background-color: #231568;
+}
+.table__box{
+    width: 100%;
+    background-color: #dae0f3;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: var(--textWhite);
+    border-radius: 20px;
+    padding: 20px;
+    
+}
+.employeTable{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    color: var(--primaryColor);
+    font-size: 14px;
+    font-weight: 700;
+     
+}
+.table__headContent{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 14px;
+
+}
+.table__headContent .employeeTable__title{
+    font-size:23px;
+    color: var(--primaryColor);
+}
+.table__headContent .addEmployeBtn{
+    padding: 14px 24px;
+    font-size: 14px;
+    border: none;
+    color: var(--textWhite);
+    background-color: #4318ff;
+    border-radius: 16px;
+    font-weight: 600;
+}
+.employeTable th , .employeTable td{
+    border-bottom: 1px solid #23156830;
+    border-collapse: separate;
+    padding: 20px;
+    
+}
+
+.employeTable th {
+   opacity: .8;
+   font-weight: 500;
+   padding: 25px 20px;
+}
+.employeTable .tableMoreIcon{
+    padding:6px 8px;
+    background-color: rgba(0, 0, 0, 0.084);
+    border-radius: 6px;
+}
+.tableProfileRow{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.tableProfileImg{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+.footer{
+    width: 100%;
+
+}
+.pagination{
+    width: 100%;
+    background-color: rgba(215, 211, 211, 0.286);
+    padding: 40px 20px;
+    border-radius: 20px;
+ 
+}
+.paginationBtns{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+.paginationBtn ,.prevBtn , .nextBtn{
+    padding: 16px 18px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--textWhite);
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+.activePagBtn{
+    background-color: #4318ff;
+    color: var(--textWhite);
+}
+/* /employeeList */
+
+
+
+/*  add employee popup */
+
+.addEmploye__container , .editEmploye__container , .deletePopup__container{
+    position: absolute;
+    margin: auto;
+    background-color: #00000074;
+    z-index: 9;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 60px;
+    min-height: 100vh;
+    overflow-y: auto;
+    display: none;
+    animation: fadeInPopup forwards .5s;
+    
+}
+.deletePopup__container{
+    position: fixed;
+}
+.fadeoutPopup{
+    animation: fadeOutPopup forwards .5s;
+    
+}
+.addEmployeBox{
+    background-color: var(--textWhite);
+    max-width: 600px;
+    margin: auto;
+    padding: 32px ;
+    border-radius: 30px;
+    color: var(--primaryColor);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: start;
+}
+.addEmploye__Header ,.deletePopup__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.addEmploy__title{
+    font-size: 22px;
+}
+.addEmploye__closeBox, .editEmploye__closeBox{
+    font-size: 22px;
+    background-color: rgba(0, 0, 0, 0.079);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+.addEmployee__imgBox{
+    width: 100%;
+    padding: 30px;
+    border: 2px dashed #231568;
+    text-align: center;
+    border-radius: 14px;
+    background-color:#f4f7fe;
+}
+.addEmployee__imglabel{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-direction: column;
+}
+.addEmployee__imglabel .imgIcon i{
+    font-size: 30px;
+    margin-bottom: -18px;
+}
+.addEmployeBox .inpBox label , .addEmployeBox .inpBox .inpLabel{
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 2px;
+   
+}
+.addEmploye__row{
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+.addEmploye__row .inpBox{
+    flex: 1;
+    
+}
+.addEmploye__row .inpBox input ,.addEmploye__row .inpBox select{
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.363);
+    outline: none;
+}
+.addEmployeBox .inpBox .inpGenderBox{
+    display: flex;
+    gap:24px;
+    margin-top: 12px;
+    
+}
+.addEmployeBox .inpBox .genderRadioBox{
+    display: flex;
+    gap: 14px;
+}
+.addEmploye__btns{
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    margin-top: 14px;
+}
+.addEmploye__addBtn{
+    padding: 12px 18px;
+    background-color: #4318ff;
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+.addEmploye__cancelBtn{
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+
+
+.editEmployee__imgContainer{
+    
+    border: 2px dashed #23156875;
+    padding: 12px 16px;
+    border-radius:20px ;
+}
+.editEmployee__imgContainer img{
+   width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+.editEmploye__imgBtn{
+    background-color: rgba(137, 43, 226, 0.288);
+    font-size: 12px;
+    color: #4318ff;
+    font-weight: 800;
+    padding: 10px 18px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    margin-left: -10px;
+    margin-top: 60px;
+}
+.editEmployee__imgBox{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+   
+}
+
+.deletePopupBox{
+    max-width: 600px;
+    padding: 30px;
+    background-color: white;
+    color: #231568;
+    text-align: start;
+    border-radius: 22px;
+    margin: auto;
+    margin-top: 30px;
+}
+.deletePopup__content{
+  margin: 30px 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.deletePopup__btns{
+    text-align: end;
+
+}
+.deletePopup__btns button{
+    padding: 12px 18px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    outline: none;
+}
+.deletePopup__btns .deleteBtn{
+    color:var(--textWhite);
+    background-color: #DC4C64;
+    margin-left: 12px;
+}
+/* /add employee popup */
+
+/* employee edit dropdown */
+.employeeEditIcon{
+    position: relative;
+}
+
+
+.employeeDropdown{
+    display: none;
+    cursor: pointer;
+}
+.activeEmployeeDropdown{
+   
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: var(--textWhite);
+    border-radius: 12px;
+    position: absolute;
+    left: -100%;
+    top: 50px;
+    z-index: 2;
+    gap: 4px;
+    padding: 10px;
+   
+}
+
+.employeeDropDown__item{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    border-radius: 12px;
+    text-align: start;
+
+}
+.employeeDropDown__item:hover{
+        background-color: rgba(0, 0, 0, 0.096);
+}
+
+.employeeDropDown__item i{
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+   
+  
+}
+/* /employee edit dropdown */
+
+
+/* animation for popup fade */
+
+@keyframes fadeInPopup{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutPopup{
+  0%{
+    opacity: 1;
+    display: block;
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+/* }   const formDetails = {
+            salutation: "mr",
+            firstname: firstnameAddInp?.value,
+            lastname: lastnameAddInp?.value,
+            email: emailAddInp?.value,
+            phome: mobileAddInp?.value,
+            dob: dobAddInp?.value,
+            gender: genderAddInp?.value,
+            qualification: qualificationsAddInp?.value,
+            address: addressAddInp?.value,
+            country: countryAddInp?.value,
+            state: stateAddInp?.value,
+            city: cityAddInp?.value,
+            pin:pinAddInp?.value
+        } */

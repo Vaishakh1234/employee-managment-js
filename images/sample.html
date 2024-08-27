@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Selector</title>
+</head>
+<body>
+    <h1>Select State</h1>
+    
+    <label for="countrySelect">Country:</label>
+    <select id="countrySelect">
+        <!-- Options will be dynamically added here -->
+    </select><br><br>
+
+    <label for="stateSelect">State:</label>
+    <select id="stateSelect">
+        <option value="">Select a state</option>
+    </select>
+
+    <script>
+        // // Function to fetch and display countries in the country select element
+        async function fetchCountries() {
+            try {
+                // Example URL - replace with your actual API endpoint
+                const response = await fetch('https://restcountries.com/v3.1/all');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const countries = await response.json();
+                const countrySelect = document.getElementById('countrySelect');
+
+                countries.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.cca2; // Use country code
+                    option.textContent = country.name.common; // Use country name
+                    countrySelect.appendChild(option);
+                });
+
+                // Add event listener to fetch states when country is selected
+                countrySelect.addEventListener('change', function() {
+                    updateStates(this.value);
+                });
+                
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        // // Function to fetch and update states based on selected country code
+        async function updateStates(countryCode) {
+            const stateSelect = document.getElementById('stateSelect');
+
+            // Clear existing options
+            stateSelect.innerHTML = '<option value="">Select a state</option>';
+
+            if (countryCode) {
+                try {
+                    // Example API endpoint for states - replace with your actual API
+                    // If no API available, replace the following URL with a mock API or alternative.
+                    const response = await fetch(`https://example.com/api/states?countryCode=${countryCode}`);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const states = await response.json();
+
+                    // Populate the state select dropdown
+                    states.forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state.code; // Assuming state code is provided
+                        option.textContent = state.name; // Assuming state name is provided
+                        stateSelect.appendChild(option);
+                    });
+
+                } catch (error) {
+                    console.error('There was a problem with the fetch operation:', error);
+                }
+            } else {
+                // Show 'None' if no country is selected
+                stateSelect.innerHTML = '<option value="">None</option>';
+            }
+        }
+
+        // // Call the function to fetch and display countries on page load
+        fetchCountries();
+
+
+    
+
+
+    </script>
+</body>
+</html>

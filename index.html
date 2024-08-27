@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employe Managment</title>
+
+    <!-- fontawsome cdn -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <!-- /fontawsome cdn -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- script  -->
+     <script defer src="script.js"></script>
+
+</head>
+<body>
+
+    <section class="sidebar__section">
+        <div class="sidebar__header">
+            <h2 class="sidebar__title">Employee</h2>
+            <h1 class="sidebar__subTitle">Managment</h1>
+        </div>
+        <ul class="sidebar__links">
+            <li class="sidebar__item activeSidebarLink">
+                <a href="/index.html">  <span><i class="fa-solid fa-house"></i></span> Dashboard</a>
+            </li>
+            <li class="sidebar__item">
+                <a href="#">  <span><i class="fa-solid fa-chart-simple"></i></span> Employees</a>
+            </li>
+           
+            <li class="sidebar__item">
+                <a href="#">  <span><i class="fa-solid fa-user"></i></span>My Profile</a>
+            </li>
+           
+            <li class="sidebar__item">
+                <a href="#">  <span><i class="fa-solid fa-lock"></i></span> Logout</a>
+            </li>
+           
+        </ul>
+    </section>
+
+    <section class="main">
+
+    <header class="header__section">
+          <div class="container">
+           <div class="header">
+             <div class="header__titleBox">
+                  <h1 class="header__title">Employees</h1>
+             </div>
+             <div class="header__profileBox">
+                   <div class="header__inpBox">
+                      <label class="searchInputLabel" for="searchInp"><i class="fa-solid fa-search"></i></label>
+                      <input id="searchInp" oninput="searchUser()" class="searchInput" type="text" placeholder="search">
+                   </div>
+                   <span >
+                     <i class="fa-regular fa-bell bellIcon"></i>
+                   </span>
+                   <img src="./images/profile.jpg" class="header__profileImg" alt="">
+             </div>
+          </div>
+         </div>
+    </header>
+
+   
+       <section class="employeList">
+                       
+        <div class="container">
+          <div class="table__box">
+              <!-- add employepopup -->
+                <div  id="addEmployeeContainer" class="addEmploye__container">
+                <div class="addEmployeBox">
+           
+                    <div class="addEmploye__Header">
+                        <h3 class="addEmploy__title">Add Employee</h3>
+                        <span id="imgCloseBtn"  onclick="closeAddEmployeePopup()"  class="addEmploye__closeBox">
+                            <i class="fa-solid fa-xmark"></i>
+                        </span>
+                    </div>
+                    <div class="addEmployee__imgBox">
+                        <label class="addEmployee__imglabel" for="addImgInp">
+                            <span class="imgIcon"><i class="fa-solid fa-image"></i></span>
+                            <h4 class="uploadTitle">Upload Image</h4>
+                            <h6 class="uploadContent">PNG,JPG files are supported</h6>
+                             <input type="file" name="avatars" accept="images/*"  id="addImgInp" hidden>
+                        </label>
+                       
+                    </div>
+                    <div class="addEmploye__row">
+                        <div class="inpBox">
+                            <label for="salutationAddInp">Salutation <span>*</span></label>
+                            <select name="salutation" id="salutationAddInp" >
+                                <option hidden>select</option>
+                                <option  value="Mr">Mr</option>
+                                <option value="Ms">Ms</option>
+                            </select>
+                        </div>
+                        <div class="inpBox">
+                            <label for="firstnameAddInp">First Name <span>*</span></label>
+                             <input  type="text" name="firstname"   id="firstnameAddInp" placeholder="John">
+                        </div>
+                        <div class="inpBox">
+                            <label for="lastnameAddInp">Last Name <span>*</span></label>
+                            <input type="text"  name="lastname"  id="lastnameAddInp" placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="emailAddInp">Email<span>*</span></label>
+                             <input type="text" id="emailAddInp"  name="email" placeholder="mail@gmail.com">
+                        </div>
+                        <div class="inpBox">
+                            <label for="mobileAddInp">Mobile Number<span>*</span></label>
+                            <input type="text" id="mobileAddInp"  name="phone" placeholder="enter mobile number">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="dobAddInp">Date of Birth<span>*</span></label>
+                             <input type="date" id="dobAddInp"  name="dob" placeholder="select date of birth">
+                        </div>
+                        <div class="inpBox">
+                            <p class="inpLabel">Gender <span>*</span></p>
+                             <div class="inpGenderBox">
+                                <div class="genderRadioBox">
+                                <input type="radio" name="genderOption"   value="Male" id="maleInp" >
+                                <label for="maleInp">Male</label>
+                             </div>
+
+                             <div class="genderRadioBox">
+                                <input type="radio"   name="genderOption" value="Female"  id="femaleInp" >
+                                <label for="femaleInp">Female</label>
+                             </div>
+                             </div>
+                             
+                            
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="qualificationsAddInp">Qualifications<span>*</span></label>
+                             <input type="text" id="qualificationsAddInp"  name="qualification" placeholder="Enter Qualifications">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="addressAddInp">Address<span>*</span></label>
+                             <input type="text" name="address" id="addressAddInp" placeholder="Enter address">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                          <div class="inpBox">
+                            <label for="countryAddInp">Country <span>*</span></label>
+                            <select name="country" id="countryAddInp" name="country">
+                                <option   hidden>select Country</option>
+                                 <option  value="india">India</option>
+                               
+                                
+                            </select>
+                        </div>
+                          <div class="inpBox">
+                            <label for="stateAddInp">State <span>*</span></label>
+                            <select name="salutation" name="state" id="stateAddInp">
+                                <option hidden>select state</option>
+                                <option  value="kerala">Kerala</option>
+                                <option value="goa">Goa</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="cityAddInp">City<span>*</span></label>
+                             <input type="text"  name="city" id="cityAddInp" placeholder="Enter city">
+                        </div>
+                        <div class="inpBox">
+                            <label for="pinAddInp">Pin/Zip<span>*</span></label>
+                            <input type="text" name="pin"  id="pinAddInp" placeholder="Enter pincode">
+                        </div>
+                    </div>
+                      
+                    <div class="addEmploye__btns">
+                        <button class="addEmploye__cancelBtn">cancel</button>
+                        <button class="addEmploye__addBtn" type="button" onclick="addEmployee(event)">Add Employee</button>
+                    </div>
+
+
+                </div>
+          
+                </div>
+                <!-- add employepopup -->
+
+             
+
+            <div class="table__headContent">
+                <h2 class="employeeTable__title">Employee List</h2>
+                <button id="addEmployeeBtn" onclick="displayAddEmployeePopup()" class="addEmployeBtn">Add Employee</button>
+
+            </div>
+             <table id="tableEmploye" class="employeTable">
+             <tr>
+                <th>SI No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Country</th>
+             </tr>
+        
+           
+           </table>
+              <!-- delete popup -->
+                <div  id="deleteEmployeeContainer" class="deletePopup__container">
+                    <div class="deletePopupBox">
+                        <div class="deletePopup__header">
+                             <h3 class="addEmploy__title">Delete Employee</h3>
+                            <span id="imgCloseBtn"  onclick="closeAddEmployeePopup()" class="editEmploye__closeBox">
+                              <i class="fa-solid fa-xmark"></i>
+                           </span>
+                        </div>
+                        <p class="deletePopup__content">Are you sure want to delete this Employe ?</p>
+                        <div class="deletePopup__btns">
+                                <button class="cancelBtn" onclick="closeAddEmployeePopup()">Cancel</button>
+                                <button id="deleteEmployeBtn"onclick="deleteEmployee()" class="deleteBtn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+              <!-- /delete popup -->
+
+              <!-- edit employepopup -->
+                <div id="editEmployeeContainer" class="editEmploye__container">
+                <div class="addEmployeBox">
+                    <div class="addEmploye__Header">
+                        <h3 class="addEmploy__title">Edit Employee</h3>
+                        <span id="imgCloseBtn" onclick="closeAddEmployeePopup()"  class="editEmploye__closeBox">
+                            <i class="fa-solid fa-xmark"></i>
+                        </span>
+                    </div>
+                    <div class="editEmployee__imgBox">
+                        <div class="editEmployee__imgContainer">
+                            <img  id="ImgPreview"  src=" " alt="">
+                        </div>
+                        <label class="editEmploye__imgBtn" for="editImgInp">
+                             Change
+                             <input type="file" name="avatars" onchange="previewImage(event)" accept="images/*" id="editImgInp" hidden>
+                        </label>
+                       
+                    </div>
+                    <div class="addEmploye__row">
+                        <div class="inpBox">
+                            <label for="salutation">Salutation <span>*</span></label>
+                            <select name="salutation" id="salutationEditInp">
+                                 <option hidden>select</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Ms">Ms</option>
+                            </select>
+                        </div>
+                        <div class="inpBox">
+                            <label for="firstnameEditInp">First Name <span>*</span></label>
+                             <input type="text" id="firstnameEditInp" value=" " placeholder="John">
+                        </div>
+                        <div class="inpBox">
+                            <label for="lastnameEditInp">Last Name <span>*</span></label>
+                            <input type="text" id="lastnameEditInp" placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="emailEditInp">Email<span>*</span></label>
+                             <input type="text" id="emailEditInp" placeholder="mail@gmail.com">
+                        </div>
+                        <div class="inpBox">
+                            <label for="mobileEditInp">Mobile Number<span>*</span></label>
+                            <input type="text" id="mobileEditInp" placeholder="enter mobile number">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="dobEditInp">Date of Birth<span>*</span></label>
+                             <input type="text" id="dobEditInp" placeholder="select date of birth">
+                        </div>
+                        <div class="inpBox">
+                            <p class="inpLabel">Gender <span>*</span></p>
+                             <div class="inpGenderBox">
+                                <div class="genderRadioBox">
+                                <input type="radio" value="Male"  name="genderEditInp" id="genderEditMale" >
+                                <label for="genderEditMale">Male</label>
+                             </div>
+
+                             <div class="genderRadioBox">
+                                <input type="radio" value="Female"  name="genderEditInp"  id="genderEditFemale" >
+                                <label for="genderEditFemale">Female</label>
+                             </div>
+                             </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="qualificationsEditInp">Qualifications<span>*</span></label>
+                             <input type="text" id="qualificationsEditInp" placeholder="Enter Qualifications">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="addressEditInp">Address<span>*</span></label>
+                             <input type="text" id="addressEditInp" placeholder="Enter address">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                          <div class="inpBox">
+                            <label for="countryEditInp">Country <span>*</span></label>
+                            <select name="country"  id="countryEditInp">
+                                <option hidden>select Country</option>
+                                <option value="india">India</option>
+                            </select>
+                        </div>
+                          <div class="inpBox">
+                            <label for="stateEditInp">State <span>*</span></label>
+                            <select name="state" id="stateEditInp">
+                                  <option hidden>select state</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="karnataka">karnataka</option>
+                                <option value="tamilnadu">Tamil Nadu</option>
+                                <option value="maharastra">Maharastra</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="cityEditInp">City<span>*</span></label>
+                             <input type="text" id="cityEditInp" placeholder="Enter city">
+                        </div>
+                        <div class="inpBox">
+                            <label for="pinEditInp">Pin/Zip<span>*</span></label>
+                            <input type="text" id="pinEditInp" placeholder="Enter pincode">
+                        </div>
+                    </div>
+                      
+                    <div class="addEmploye__btns">
+                        <button class="addEmploye__cancelBtn">cancel</button>
+                        <input type="text" id="editEmployeeId" hidden>
+                        <button class="addEmploye__addBtn" onclick="editEmployee('')">Edit Employee</button>
+                    </div>
+
+
+                </div>
+                </div>
+                <!-- edit employepopup -->
+
+
+          </div>
+        </div>
+
+       </section>
+
+
+       <footer class="footer">
+        <div class="container">
+          <div class="pagination">
+             <div class="paginationBtns">
+              <button class="prevBtn" onclick="prevBtnFunction()"><i class="fa-solid fa-angles-left"></i></button>
+                <div id="listPagBtns">
+
+                </div>
+             <button class="nextBtn"  onclick="nextBtnFunction()"><i class="fa-solid fa-angles-right"></i></button>
+             </div>
+          </div>
+         </div>
+       </footer>
+
+    </section>
+              
+</body>
+</html>

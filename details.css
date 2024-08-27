@@ -1,0 +1,89 @@
+.employeeDetailsMain{
+    width: 100%;
+    
+}
+.employeeDetailBox{
+    max-width: 700px;
+    background-color: white;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-radius: 30px;
+    padding: 30px;
+    color: #231568;
+    
+}
+.employeeDetailBox__bgImg{
+    width: 100%;
+    border-radius: 20px;
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.employeeDetailBox__bgImg img{
+    width: 100%;
+    border-radius: 20px;
+   
+}
+.profileBox__imgBox{
+    text-align: center;
+    position: relative;
+    top: -40px;
+   
+}
+.profileBox__imgBox .profileImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+     border: 6px white solid;
+    box-shadow: rgba(99, 99, 99, 0.441) 0px 2px 8px 0px;
+    margin-bottom: 16px;
+}
+.profileBox__imgBox .profileBox__title{
+    margin-bottom: 10px;
+}
+.profileBox__imgBox .profileBox__email{
+    font-weight: 700;
+    font-size: 14px;
+}
+.profileBox__contentBox{
+    display: flex;
+    gap: 22px;
+}
+.profileBox__content{
+    flex: 1;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    word-break: break-all;
+}
+.profileBox__content .profileContent__tag{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.profileBox__content .profileContent__title{
+   font-weight: 600;
+   font-size: 14px;
+}
+.profileBox__btnBox{
+    text-align: end;
+    padding-top: 20px;
+}
+.profileBox__btnBox button{
+    padding: 20px 22px;
+
+    font-weight: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    color: white;
+    border: none;
+    outline: none;
+}
+.profileBox__btnBox .dltBtn{
+    background-color:#DC4C64 ;
+    margin-right: 20px;
+}
+.profileBox__btnBox .editBtn{
+    background-color: #3B71CA;
+}

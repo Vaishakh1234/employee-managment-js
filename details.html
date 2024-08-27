@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="details.css">
+
+       <!-- fontawsome cdn -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <!-- /fontawsome cdn -->
+
+
+    <script defer src="details.js"></script>
+
+</head>
+<body>
+
+     <section class="sidebar__section">
+        <div class="sidebar__header">
+            <h2 class="sidebar__title">Employee</h2>
+            <h1 class="sidebar__subTitle">Managment</h1>
+        </div>
+        <ul class="sidebar__links">
+            <li class="sidebar__item activeSidebarLink">
+                <a href="/index.html">  <span><i class="fa-solid fa-house"></i></span> Dashboard</a>
+            </li>
+            <li class="sidebar__item">
+                <a href="#">  <span><i class="fa-solid fa-chart-simple"></i></span> Employees</a>
+            </li>
+           
+            <li class="sidebar__item">
+                <a href="#">  <span><i class="fa-solid fa-user"></i></span>My Profile</a>
+            </li>
+           
+            <li class="sidebar__item">
+                <a href="#">  <span><i class="fa-solid fa-lock"></i></span> Logout</a>
+            </li>
+           
+        </ul>
+    </section>
+
+    <section class="main">
+         <div class="employeeDetailBox">
+            <div class="employeeDetailBox__bgImg">
+                <img src="./images/employeeBanner.jpg" alt="">
+            </div>
+            <div class="employeeDetailBox__profileBox">
+                <div class="profileBox__imgBox">
+                    <img id="employeeProfileImg" class="profileImg" src="" alt="">
+                    <h2 id="employeeName" class="profileBox__title">
+                        Mr. Michale Jascion
+                    </h2>
+                    <p  id="employeeEmail" class="profileBox__email">vaishakh@gmail.com</p>
+                </div>
+                    <div class="profileBox__contentBox">
+                       <div class="profileBox__content">
+                          <h6 class="profileContent__tag">Gender</h6>
+                          <p id="employeeGender" class="profileContent__title">Male</p>
+                       </div>
+                       <div class="profileBox__content">
+                          <h6 class="profileContent__tag">Age</h6>
+                          <p id="employeeAge" class="profileContent__title">38</p>
+                       </div>
+                       <div class="profileBox__content">
+                          <h6 class="profileContent__tag">Date of Birth</h6>
+                          <p id="employeeDob" class="profileContent__title">20 December 2003</p>
+                       </div>
+                    </div>
+                    <div class="profileBox__contentBox">
+                       <div class="profileBox__content">
+                          <h6 class="profileContent__tag">Mobile</h6>
+                          <p id="employeeMobile" class="profileContent__title">9876543210</p>
+                       </div>
+                       <div class="profileBox__content">
+                          <h6 class="profileContent__tag">Qualifications</h6>
+                          <p id="employeeQualifications" class="profileContent__title">Bachelors</p>
+                       </div>
+                    
+                    </div>
+                    <div class="profileBox__contentBox">
+                       <div class="profileBox__content">
+                          <h6 class="profileContent__tag">Address</h6>
+                          <p id="employeeAddress" class="profileContent__title">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                       </div>
+                       <div class="profileBox__content">
+                          <h6 class="profileContent__tag">Username</h6>
+                          <p id="employeeUsername" class="profileContent__title">vaishakhp</p>
+                       </div>
+                     
+                    </div>
+                    <div class="profileBox__btnBox">
+                        <button onclick="displayDeleteEmployeePopup()" class="dltBtn">Delete</button>
+                        <button onclick="getOneEmployee()" class="editBtn">Edit Details</button>
+                    </div>
+
+                <!-- delete popup -->
+                <div style="position: fixed;"  id="deleteEmployeeContainer" class="deletePopup__container">
+                    <div class="deletePopupBox">
+                        <div class="deletePopup__header">
+                             <h3 class="addEmploy__title">Delete Employee</h3>
+                            <span id="imgCloseBtn"  onclick="closeAddEmployeePopup()" class="editEmploye__closeBox">
+                              <i class="fa-solid fa-xmark"></i>
+                           </span>
+                        </div>
+                        <p class="deletePopup__content">Are you sure want to delete this Employe ?</p>
+                        <div class="deletePopup__btns">
+                                <button class="cancelBtn" onclick="closeAddEmployeePopup()">Cancel</button>
+                                <button id="deleteEmployeBtn"onclick="deleteEmployee()" class="deleteBtn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+              <!-- /delete popup -->
+
+               <!-- edit employepopup -->
+                <div id="editEmployeeContainer"  class="editEmploye__container">
+                <div class="addEmployeBox">
+                    <div class="addEmploye__Header">
+                        <h3 class="addEmploy__title">Edit Employee</h3>
+                        <span id="imgCloseBtn" onclick="closeAddEmployeePopup()"  class="editEmploye__closeBox">
+                            <i class="fa-solid fa-xmark"></i>
+                        </span>
+                    </div>
+                    <div class="editEmployee__imgBox">
+                        <div class="editEmployee__imgContainer">
+                            <img id="editImgPreview"  src="" alt="">
+                        </div>
+                        <label class="editEmploye__imgBtn" for="editImgInp">
+                             Change
+                             <input type="file" name="avatars" onchange="previewImage(event)" accept="images/*" id="editImgInp" hidden>
+                        </label>
+                         <!-- <button id="noneImgSelectBtn" class="editEmploye__imgBtn" >
+                             none
+                         </button> -->
+                       
+                    </div>
+                    <div class="addEmploye__row">
+                        <div class="inpBox">
+                            <label for="salutation">Salutation <span>*</span></label>
+                            <select name="salutation" id="salutationEditInp">
+                                 <option hidden>select</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Ms">Ms</option>
+                            </select>
+                        </div>
+                        <div class="inpBox">
+                            <label for="firstnameEditInp">First Name <span>*</span></label>
+                             <input type="text" id="firstnameEditInp" value=" " placeholder="John">
+                        </div>
+                        <div class="inpBox">
+                            <label for="lastnameEditInp">Last Name <span>*</span></label>
+                            <input type="text" id="lastnameEditInp" placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="emailEditInp">Email<span>*</span></label>
+                             <input type="text" id="emailEditInp" placeholder="mail@gmail.com">
+                        </div>
+                        <div class="inpBox">
+                            <label for="mobileEditInp">Mobile Number<span>*</span></label>
+                            <input type="text" id="mobileEditInp" placeholder="enter mobile number">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="dobEditInp">Date of Birth<span>*</span></label>
+                             <input type="text" id="dobEditInp" placeholder="select date of birth">
+                        </div>
+                        <div class="inpBox">
+                            <p class="inpLabel">Gender <span>*</span></p>
+                             <div class="inpGenderBox">
+                                <div class="genderRadioBox">
+                                <input type="radio" value="Male"  name="genderEditInp" id="genderEditMale" >
+                                <label for="genderEditMale">Male</label>
+                             </div>
+
+                             <div class="genderRadioBox">
+                                <input type="radio" value="Female"  name="genderEditInp"  id="genderEditFemale" >
+                                <label for="genderEditFemale">Female</label>
+                             </div>
+                             </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="qualificationsEditInp">Qualifications<span>*</span></label>
+                             <input type="text" id="qualificationsEditInp" placeholder="Enter Qualifications">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="addressEditInp">Address<span>*</span></label>
+                             <input type="text" id="addressEditInp" placeholder="Enter address">
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                          <div class="inpBox">
+                            <label for="countryEditInp">Country <span>*</span></label>
+                            <select name="country"  id="countryEditInp">
+                                <option hidden>select Country</option>
+                                <option value="india">India</option>
+                            </select>
+                        </div>
+                          <div class="inpBox">
+                            <label for="stateEditInp">State <span>*</span></label>
+                            <select name="state" id="stateEditInp">
+                                  <option hidden>select state</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="karnataka">karnataka</option>
+                                <option value="tamilnadu">Tamil Nadu</option>
+                                <option value="maharastra">Maharastra</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="addEmploye__row">
+                         <div class="inpBox">
+                            <label for="cityEditInp">City<span>*</span></label>
+                             <input type="text" id="cityEditInp" placeholder="Enter city">
+                        </div>
+                        <div class="inpBox">
+                            <label for="pinEditInp">Pin/Zip<span>*</span></label>
+                            <input type="text" id="pinEditInp" placeholder="Enter pincode">
+                        </div>
+                    </div>
+                      
+                    <div class="addEmploye__btns">
+                        <button class="addEmploye__cancelBtn">cancel</button>
+                        <input type="text" id="editEmployeeId" hidden>
+                        <button class="addEmploye__addBtn" onclick="editEmployee()">Edit Employee</button>
+                    </div>
+
+
+                </div>
+                </div>
+                <!-- edit employepopup -->
+
+
+                </div>
+            </div>
+         </div>
+    </section>
+    
+</body>
+</html>
